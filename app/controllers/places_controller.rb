@@ -12,7 +12,9 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @reviews = @place.reviews
-    @review = Review.new
+    if current_user
+      @review = Review.new
+    end
   end
 
   # GET /places/new
